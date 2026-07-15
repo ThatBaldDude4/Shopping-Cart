@@ -4,8 +4,8 @@ export default function Cart() {
     return (
         <div>
             This is the cart page
-            <Link to="Home">HOME</Link>
-            <Link to="Shop">SHOP</Link>
+            <Link to="/">HOME</Link>
+            <Link to="/Shop">SHOP</Link>
         </div>
     )
 }
