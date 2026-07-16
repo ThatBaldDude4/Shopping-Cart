@@ -25,6 +25,7 @@ export default function Shop() {
                         price={item.price}
                         title={item.title}
                         key={item.id}
+                        id={item.id}
                     />
                 })}
             </div>

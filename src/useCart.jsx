@@ -6,7 +6,7 @@ export default function useCart() {
     function addItemToCart(newItem) {
         if (
             !newItem || 
-            !newItem.id === null ||
+            newItem.id === null ||
             typeof newItem.count !== "number" ||
             newItem.count <= 0
         ) {
@@ -51,8 +51,7 @@ export default function useCart() {
                 }
             });
             return newCart
-        })
-            
+        })     
     }
 
     return {cart, addItemToCart, removeFromCart }
