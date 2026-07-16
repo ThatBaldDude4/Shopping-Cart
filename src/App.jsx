@@ -1,11 +1,14 @@
 import { Outlet } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import  useStoreData  from "./useStoreData";
+import useCart from "./useCart";
 
 function App() {
-    const [mockData, setMockData] = useState(0);
+    const {data, loading, error} = useStoreData();
+    const {cart, addItemToCart, removeFromCart} = useCart();
 
   return (
-    <Outlet context={{mockData, setMockData}}/>
+    <Outlet context={{data, loading, error, cart, addItemToCart, removeFromCart}}/>
   )
 }
 

@@ -1,0 +1,4 @@
+- Decide and implement data fetching and storing
+- Rendering data on cart and shop page
+- Styling app
+- Wire state 
