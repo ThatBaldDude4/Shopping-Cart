@@ -1,4 +1,4 @@
-import { Link, NavLink, useOutletContext } from "react-router";
+import { Link, NavLink } from "react-router";
 import "./navbar.css"
 
 export default function Navbar({cartLength}) {

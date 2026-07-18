@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-// delay is for testing purposes only
-
 function useStoreData() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -19,10 +16,6 @@ function useStoreData() {
             .then(response => {
                 if (response.status >= 400) {throw new Error(`HTTP error. Status: ${response.status}`)}
                 return response.json();
-            })
-            .then((data) => {
-                // add delay to test loading state
-                return delay(2000).then(() => data);
             })
             .then(data => setData(data))
             .catch(err => {

@@ -10,7 +10,18 @@ export default function Cart() {
     if (error) {
         return <div>Error: {error}</div>
     }
+    if (cart.length === 0) {
+        return (
+            <div>
+                <p>Cart is empty click <Link to="/Shop">HERE</Link> to shop</p>
+            </div>
+        )
+    }
     const cartItems = getCartItemsData(cart, data);
+    const total = cartItems.reduce((acc, curr) => {
+        return acc + (curr.price * curr.count);
+    }, 0)
+
 
     return (
         <div>
@@ -19,7 +30,7 @@ export default function Cart() {
                 return (
                     <div key={item.id}>
                         <h3>{item.title}</h3>
-                        <p>Price: {item.price}</p>
+                        <p>Price: {`$${item.price.toFixed(2)}`}</p>
                         <div>
                             <button onClick={() => {removeFromCart(item.id)}}>Decrease Count</button>
                             <p>Count: {item.count}</p>
@@ -29,6 +40,9 @@ export default function Cart() {
                     </div>
                 )
             })}
+            <div>
+                <p>Total: {`$${total.toFixed(2)}`}</p>
+            </div>
         </div>
     )
 }

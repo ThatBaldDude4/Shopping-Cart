@@ -1,5 +1,4 @@
 import { Outlet } from "react-router";
-import { useState, useEffect } from "react";
 import  useStoreData  from "./useStoreData";
 import useCart from "./useCart";
 import Navbar from "./components/Navbar/Navbar.jsx";
@@ -10,7 +9,7 @@ function App() {
 
   return (
     <>
-    <Navbar cartLength={cart.length}/>
+    <Navbar cartLength={cart.reduce((acc, curr) => {return acc + curr.count}, 0)}/>
     <Outlet context={{data, loading, error, cart, addItemToCart, removeFromCart}}/>
     </>
     

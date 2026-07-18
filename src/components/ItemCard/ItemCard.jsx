@@ -4,10 +4,10 @@ import "./itemCard.css"
 
 export default function ItemCard({title, price, description, id}) {
     const [count, setCount] = useState(1);
-    const {addItemToCart, removeFromCart} = useOutletContext();
+    const {addItemToCart} = useOutletContext();
 
     function handleAddItem() {
-        addItemToCart({id, count})
+        addItemToCart({id, count: Number(count)})
     }
 
     function handleDecrease() {
@@ -21,11 +21,17 @@ export default function ItemCard({title, price, description, id}) {
     }
 
     function handleInput(e) {
-        let number = Number(e.target.value);
-        if (number > 99) {
+        let value = e.target.value;
+
+        if (value === "") {
+            setCount("");
             return;
+        };
+        const number = Number(value);
+
+        if (Number.isInteger(number) && number >= 1 && number <= 99) {
+            setCount(value);
         }
-        setCount(e.target.value);
     };
 
     function handleInputChange(e) {
