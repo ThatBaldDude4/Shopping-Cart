@@ -8,8 +8,6 @@ export default function Home() {
             <p>
                 For your local, and affordable goods
             </p>
-            <Link to="/Cart" style={{margin: "10px",}}>CART</Link>
-            <Link to="/Shop">SHOP</Link>
         </section>
     )
 }

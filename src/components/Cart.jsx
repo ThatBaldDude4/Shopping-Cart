@@ -29,8 +29,6 @@ export default function Cart() {
                     </div>
                 )
             })}
-            <Link to="/">HOME</Link>
-            <Link to="/Shop">SHOP</Link>
         </div>
     )
 }

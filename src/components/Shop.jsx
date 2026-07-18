@@ -16,8 +16,6 @@ export default function Shop() {
     return (
         <div>
             This is the Shop page
-            <Link to="/">HOME</Link>
-            <Link to="/Cart">Cart</Link>
             <div>
                 {data.map((item) => {
                     return <ItemCard 
