@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import  useStoreData  from "./useStoreData";
 import useCart from "./useCart";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import "./app.css";
 
 function App() {
     const {data, loading, error} = useStoreData();

@@ -6,7 +6,6 @@ export default function ItemCard({title, price, description, id}) {
     const {addItemToCart, removeFromCart} = useOutletContext();
 
     function handleAddItem() {
-        console.log(id)
         addItemToCart({id, count})
     }
 
@@ -24,7 +23,9 @@ export default function ItemCard({title, price, description, id}) {
         <div className="item-card">
             <h3>{title}</h3>
             <p>Price: {price}</p>
-            <p>{description}</p>
+            <p>
+                {description.slice(0, 100) + "..."}
+            </p>
             <div>
                 <button onClick={handleDecre}>-</button>
                 <div>{count}</div>

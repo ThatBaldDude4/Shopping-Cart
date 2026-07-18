@@ -1,15 +1,19 @@
-import { Link } from "react-router"
+import { Link, NavLink, useParams } from "react-router";
+import "./navbar.css"
 
 export default function Navbar() {
+    const params = useParams();
+
+    console.log
     return (
-        <div class="navbar-container">
-            <div class="brand-name-container">
-                <Link to="/">VALIDVIAN</Link>
+        <div className="navbar-container">
+            <div className="brand-name-container">
+                <Link to="/" className="nav-link">VALIDVIAN</Link>
             </div>
-            <div class="page-links-container">
-                <Link to="/">HOME</Link>
-                <Link to="Shop">SHOP</Link>
-                <Link to="Cart">CART</Link>
+            <div className="page-links-container">
+                <NavLink to="/" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>HOME</NavLink>
+                <NavLink to="Shop" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>SHOP</NavLink>
+                <NavLink to="Cart" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>CART</NavLink>
             </div>
         </div>
     )
