@@ -15,7 +15,6 @@ export default function Shop() {
 
     return (
         <div>
-            This is the Shop page
             <div>
                 {data.map((item) => {
                     return <ItemCard 

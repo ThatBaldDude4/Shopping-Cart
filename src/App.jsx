@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <Navbar />
+    <Navbar cartLength={cart.length}/>
     <Outlet context={{data, loading, error, cart, addItemToCart, removeFromCart}}/>
     </>
     

@@ -1,0 +1,60 @@
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.item-card > p {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.item-card-count-container {
+    display: flex;
+    font-size: 1.25rem;
+    padding: 10px;
+}
+
+.item-card-count-container > button,
+.item-card-count-container > input {
+    background-color: rgb(40, 40, 40);
+    color: antiquewhite;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 1.0rem;
+    border-radius: 10px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.item-card-count-container > button:active,
+.item-card-count-container > input:active {
+    background-color: rgba(40, 40, 40, 0.783);
+    color: rgba(250, 235, 215, 0.489);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-in-out;
+}
+
+@keyframes button-click {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@media (min-width: 500px) {
+    .item-card {
+        max-width: 500px;
+    }
+}

@@ -1,10 +1,8 @@
-import { Link, NavLink, useParams } from "react-router";
+import { Link, NavLink, useOutletContext } from "react-router";
 import "./navbar.css"
 
-export default function Navbar() {
-    const params = useParams();
-
-    console.log
+export default function Navbar({cartLength}) {
+    const cartCount = cartLength > 0 ? cartLength : "";
     return (
         <div className="navbar-container">
             <div className="brand-name-container">
@@ -13,7 +11,7 @@ export default function Navbar() {
             <div className="page-links-container">
                 <NavLink to="/" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>HOME</NavLink>
                 <NavLink to="Shop" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>SHOP</NavLink>
-                <NavLink to="Cart" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>CART</NavLink>
+                <NavLink to="Cart" end className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>CART <span>{cartCount}</span></NavLink>
             </div>
         </div>
     )
