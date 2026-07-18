@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { useOutletContext } from "react-router";
-import ItemCard from "./ItemCard";
+import ItemCard from "../ItemCard/ItemCard.jsx";
 
 export default function Shop() {
     const {data, loading, error} = useOutletContext();

@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import  useStoreData  from "./useStoreData";
 import useCart from "./useCart";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar.jsx";
 import "./app.css";
 
 function App() {
