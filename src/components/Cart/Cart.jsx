@@ -33,7 +33,7 @@ export default function Cart() {
                         <p>Price: {`$${item.price.toFixed(2)}`}</p>
                         <div>
                             <button onClick={() => {removeFromCart(item.id)}}>Decrease Count</button>
-                            <p>Count: {item.count}</p>
+                            <p>QTY: {item.count}</p>
                             <button onClick={() => {addItemToCart({id: item.id, count: 1})}}>Increase Count</button>
                         </div>
                         <button onClick={() => {removeFromCart(item.id, item.count)}}>DELETE</button>

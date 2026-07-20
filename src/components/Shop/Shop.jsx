@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 
 export default function Shop() {
@@ -14,7 +14,7 @@ export default function Shop() {
 
     return (
         <div>
-            <div>
+            <div className="item-cards-container">
                 {data.map((item) => {
                     return <ItemCard 
                         description={item.description}

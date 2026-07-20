@@ -8,10 +8,10 @@ function App() {
     const {cart, addItemToCart, removeFromCart} = useCart();
 
   return (
-    <>
+    <div className="app-container">
     <Navbar cartLength={cart.reduce((acc, curr) => {return acc + curr.count}, 0)}/>
     <Outlet context={{data, loading, error, cart, addItemToCart, removeFromCart}}/>
-    </>
+    </div>
     
   )
 }

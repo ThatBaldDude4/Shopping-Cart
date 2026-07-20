@@ -1,5 +1,6 @@
-import { useOutletContext } from "react-router";
+import { useOutletContext, NavLink } from "react-router";
 import { useState } from "react";
+import Input from "../Input/Input";
 import "./itemCard.css"
 
 export default function ItemCard({title, price, description, id}) {
@@ -45,22 +46,13 @@ export default function ItemCard({title, price, description, id}) {
         <div className="item-card">
             <h3>{title}</h3>
             <p>Price: <span className="bold">{`$${price.toFixed(2)}`}</span></p>
-            <p>
-                {description.slice(0, 125) + "..."}
-            </p>
             <div className="item-card-count-container">
                 <button onClick={handleDecrease}>-</button>
-                <input 
-                    value={count} 
-                    type="number" 
-                    min="0" 
-                    max="99" 
-                    onChange={(e) => {handleInput(e)}}
-                    onBlur={(e) => {handleInputChange(e)}}
-                />
+                <Input count={count} setCount={setCount}/>
                 <button onClick={() => {setCount(prev => prev + 1)}}>+</button>
                 <button className="add-to-cart-btn" onClick={handleAddItem}>ADD TO CART</button>
             </div>
+            <NavLink to={`/Shop/products/${id}`}>Details</NavLink>
         </div>
     )
 }
