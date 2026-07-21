@@ -21,20 +21,6 @@ export default function ItemCard({title, price, description, id}) {
         })
     }
 
-    function handleInput(e) {
-        let value = e.target.value;
-
-        if (value === "") {
-            setCount("");
-            return;
-        };
-        const number = Number(value);
-
-        if (Number.isInteger(number) && number >= 1 && number <= 99) {
-            setCount(value);
-        }
-    };
-
     function handleInputChange(e) {
         const inputVal = e.target.value;
         if (inputVal === "") {

@@ -18,6 +18,7 @@ export default function Cart() {
         )
     }
     const cartItems = getCartItemsData(cart, data);
+    console.log("cart items", cartItems);
     const total = cartItems.reduce((acc, curr) => {
         return acc + (curr.price * curr.count);
     }, 0)
@@ -49,12 +50,12 @@ export default function Cart() {
 
 
 function getCartItemsData(cart, data) {
+    console.log(cart);
     if (!Array.isArray(data)) return [];
     return cart.map((item) => {
         const matchedItem = data.find((dataItem) => {
             return dataItem.id === item.id;
         });
-
         return {
             ...matchedItem,
             count: item.count,

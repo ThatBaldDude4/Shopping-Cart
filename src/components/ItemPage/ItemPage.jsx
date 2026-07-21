@@ -1,9 +1,10 @@
 import { useOutletContext, NavLink, useParams } from "react-router";
 import { useState } from "react";
+import Input from "../Input/Input";
 
 export default function ItemPage() {
     const { data, loading, error, addItemToCart } = useOutletContext();
-    const { id } = useParams();
+    const id = Number(useParams().id);
     const [count, setCount] = useState(1);
 
     if (loading) {
@@ -12,10 +13,10 @@ export default function ItemPage() {
     if (error) {
         return <div>Error please try again later</div>
     }
-    const cartItem = data.filter(item => item.id === id);
+    const cartItem = data.find(item => item.id === id);
 
     function handleAddItem() {
-        addItemToCart({id, count: Number(count)})
+        addItemToCart({id: Number(id), count: Number(count)})
     }
 
     function handleDecrease() {
