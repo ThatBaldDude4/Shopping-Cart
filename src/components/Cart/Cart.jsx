@@ -18,7 +18,6 @@ export default function Cart() {
         )
     }
     const cartItems = getCartItemsData(cart, data);
-    console.log(cartItems)
     if (!cartItems) {
         return <div>Loading...</div>
     }

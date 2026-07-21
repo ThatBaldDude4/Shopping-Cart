@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function ItemPage() {
     const { data, loading, error, dispatch } = useOutletContext();
-    const { id } = useParams();
+    const id = Number(useParams().id);
     const [count, setCount] = useState(1);
 
     if (loading) {
@@ -16,10 +16,9 @@ export default function ItemPage() {
     if (!data) {
         return <div>Loading...</div>
     }
-    const cartItem = data.filter(item => item.id === id);
+    const cartItem = data.find(item => item.id === id);
 
     function handleAddItem() {
-        console.log(id)
         dispatch({newItem: {id, count: Number(count)}, type: "addItemToCart"})
     }
 

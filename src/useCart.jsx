@@ -6,12 +6,11 @@ export default function useCart() {
 }
 
 function reducer(state, action) {
-    console.log("reducer fired")
     const prev = state;
 
     if (action.type === "removeFromCart") {
         const itemId = action.itemId;
-        const amount = action?.amount ? action.amount : 1;
+        const amount = action.amount ?? 1;
 
         if (amount <= 0) {return prev}
 
@@ -19,7 +18,7 @@ function reducer(state, action) {
         prev.forEach((item) => {
             if (item.id === itemId) {
                 if (amount >= item.count) {
-                    return state;
+                    return;
                 }else {
                     newCart.push({...item, count: item.count - amount});
                 }
@@ -56,7 +55,8 @@ function reducer(state, action) {
         if (!foundMatch) {
             newCart.push(newItem);
         }
-        console.log(newCart)
         return newCart;
     };
+
+    return state;
 };
