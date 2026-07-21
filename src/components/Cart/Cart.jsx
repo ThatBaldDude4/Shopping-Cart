@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { useOutletContext } from "react-router";
 
 export default function Cart() {
-    const {cart, data, loading, error, addItemToCart, removeFromCart} = useOutletContext();
+    const {cart, data, loading, error, dispatch} = useOutletContext();
 
     if (loading) {
         return <div>Loading Cart...</div>
@@ -18,6 +18,11 @@ export default function Cart() {
         )
     }
     const cartItems = getCartItemsData(cart, data);
+    console.log(cartItems)
+    if (!cartItems) {
+        return <div>Loading...</div>
+    }
+
     const total = cartItems.reduce((acc, curr) => {
         return acc + (curr.price * curr.count);
     }, 0)
@@ -32,11 +37,11 @@ export default function Cart() {
                         <h3>{item.title}</h3>
                         <p>Price: {`$${item.price.toFixed(2)}`}</p>
                         <div>
-                            <button onClick={() => {removeFromCart(item.id)}}>Decrease Count</button>
+                            <button onClick={() => {dispatch({type: "removeFromCart", itemId: item.id})}}>Decrease Count</button>
                             <p>QTY: {item.count}</p>
-                            <button onClick={() => {addItemToCart({id: item.id, count: 1})}}>Increase Count</button>
+                            <button onClick={() => {dispatch({type: "addItemToCart", newItem: {id: item.id, count: 1},})}}>Increase Count</button>
                         </div>
-                        <button onClick={() => {removeFromCart(item.id, item.count)}}>DELETE</button>
+                        <button onClick={() => {dispatch({type: "removeFromCart", itemId: item.id, amount: item.count})}}>DELETE</button>
                     </div>
                 )
             })}

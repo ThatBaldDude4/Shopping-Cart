@@ -5,10 +5,10 @@ import "./itemCard.css"
 
 export default function ItemCard({title, price, description, id}) {
     const [count, setCount] = useState(1);
-    const {addItemToCart} = useOutletContext();
+    const {dispatch} = useOutletContext();
 
     function handleAddItem() {
-        addItemToCart({id, count: Number(count)})
+        dispatch({newItem: {id, count: Number(count)}, type: "addItemToCart"})
     }
 
     function handleDecrease() {

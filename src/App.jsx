@@ -5,12 +5,12 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 
 function App() {
     const {data, loading, error} = useStoreData();
-    const {cart, addItemToCart, removeFromCart} = useCart();
+    const {cart, dispatch} = useCart();
 
   return (
     <div className="app-container">
     <Navbar cartLength={cart.reduce((acc, curr) => {return acc + curr.count}, 0)}/>
-    <Outlet context={{data, loading, error, cart, addItemToCart, removeFromCart}}/>
+    <Outlet context={{data, loading, error, cart, dispatch}}/>
     </div>
     
   )
